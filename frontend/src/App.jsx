@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import {useState} from 'react'
+
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handlePassword=(event)=>{
+        setPassword(event.target.value)
+    }
+    const handleEmail=(event)=>{
+        setEmail(event.target.value)
+    }
+    return (
+        <div>
+            <h2>Log In To Your Personal Linked Notes</h2>
+            <div className="form-wrapper">
+                <form className={"form"}>
+                    <div className={"form-item"}>
+                        <label>Email</label>
+                        <input type={"email"} name="email" value={email} onChange={(event)=>handleEmail(event)}></input>
+                    </div>
+                    <div className={"form-item"}>
+                        <label>Password</label>
+                        <input type={"password"} value={password} onChange={(event)=>handlePassword(event)}></input>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    )
 }
 
 export default App
